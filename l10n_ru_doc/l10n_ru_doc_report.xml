@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="blank_portrait_header" model="ir.header_webkit">
+            <field name="orientation">Portrait</field>
+            <field name="format">A4</field>
+            <field name="html"> </field>
+            <field eval="0" name="margin_top"/>
+            <field eval="0" name="margin_bottom"/>
+            <field eval="1.43" name="scale"/>
+            <field name="name">Blank Portrait Header</field>
+		</record>
+        <record id="blank_landscape_header" model="ir.header_webkit">
+            <field name="orientation">Landscape</field>
+            <field name="format">A4</field>
+            <field name="html"> </field>
+            <field eval="0.01" name="margin_top"/>
+            <field eval="0.01" name="margin_bottom"/>
+            <field eval="1.25" name="scale"/>
+            <field name="name">Blank Landscape Header</field>
+		</record>
+        <report 
+            auto="False" 
+            id="sale.report_sale_order" 
+            model="sale.order" 
+            name="sale.order"
+            file="l10n_ru_doc/report/order.htm" 
+            string="Order"
+            usage="default"
+            report_type="webkit"
+            webkit_header="blank_portrait_header"/>
+        <report 
+            auto="False" 
+            id="account.account_invoices" 
+            model="account.invoice" 
+            name="account.invoice"
+            file="l10n_ru_doc/report/invoice.htm" 
+            string="Invoice"
+            usage="default"
+            report_type="webkit"
+            webkit_header="blank_landscape_header"/>
+        <report 
+            auto="False" 
+            id="report_account_invoice_bill" 
+            model="account.invoice" 
+            name="account.invoice.bill.webkit"
+            file="l10n_ru_doc/report/bill.htm" 
+            string="Bill"
+            usage="default"
+            report_type="webkit"
+            webkit_header="blank_landscape_header"/>
+        <report 
+            auto="False" 
+            id="report_account_invoice_act" 
+            model="account.invoice" 
+            name="account.invoice.act.webkit"
+            file="l10n_ru_doc/report/act.htm" 
+            string="Act"
+            usage="default"
+            report_type="webkit"
+            webkit_header="blank_portrait_header"/>
+    </data>
+</openerp>

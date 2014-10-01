@@ -22,7 +22,7 @@
 from datetime import datetime
 import re
 
-from report_webkit.report_helper import WebKitHelper
+from openerp.addons.report_webkit.report_helper import WebKitHelper
 from pytils import numeral,dt
 
 def numer(self, name):

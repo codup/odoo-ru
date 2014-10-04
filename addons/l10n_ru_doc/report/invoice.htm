@@ -93,7 +93,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS=R1>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R1C1" COLSPAN=14><SPAN STYLE="white-space:nowrap;">Счет-фактура № ${ helper.numer(o.number)|n } от ${o.date_invoice or ''}</SPAN></TD>
+<TD CLASS="R1C1" COLSPAN=14><SPAN STYLE="white-space:nowrap;">Счет-фактура № ${ helper.numer(o.number) } от ${o.date_invoice or ''}</SPAN></TD>
 <TD><SPAN></SPAN></TD>
 <TD></TD>
 </TR>
@@ -111,7 +111,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS=R3>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R3C1" COLSPAN=14>Адрес: ${ helper.address(company)|n }</TD>
+<TD CLASS="R3C1" COLSPAN=14>Адрес: ${ helper.address(company) }</TD>
 <TD><SPAN></SPAN></TD>
 <TD></TD>
 </TR>
@@ -129,7 +129,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS=R3>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R3C1" COLSPAN=14>Грузополучатель и его адрес: ${ helper.representation(o.partner_id)|n }<!-- TO DO: ПредставлениеГрузополучателя --></TD>
+<TD CLASS="R3C1" COLSPAN=14>Грузополучатель и его адрес: ${ helper.representation(o.partner_id) }<!-- TO DO: ПредставлениеГрузополучателя --></TD>
 <TD><SPAN></SPAN></TD>
 <TD></TD>
 </TR>
@@ -147,7 +147,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS=R3>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R3C1" COLSPAN=14>Адрес: ${ helper.address(o.partner_id)|n }</TD>
+<TD CLASS="R3C1" COLSPAN=14>Адрес: ${ helper.address(o.partner_id) }</TD>
 <TD><SPAN></SPAN></TD>
 <TD></TD>
 </TR>
@@ -343,13 +343,13 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TR CLASS=R27>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R27C1"><SPAN STYLE="white-space:nowrap;">Руководитель&nbsp;организации<BR>или&nbsp;иное&nbsp;уполномоченное&nbsp;лицо</SPAN></TD>
-<TD CLASS="R27C2I" COLSPAN=2><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.chief_id.facsimile) or ''|n }</SPAN></TD>
+<TD CLASS="R27C2I" COLSPAN=2><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.chief_id.facsimile)|safe or '' }</SPAN></TD>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R27C5" COLSPAN=2>${ helper.initials(company.chief_id.name)|n }</TD>
+<TD CLASS="R27C5" COLSPAN=2>${ helper.initials(company.chief_id.name) }</TD>
 <TD CLASS="R27C1" COLSPAN=3><SPAN STYLE="white-space:nowrap;">Главный&nbsp;бухгалтер<BR>или&nbsp;иное&nbsp;уполномоченное&nbsp;лицо</SPAN></TD>
-<TD CLASS="R27C2I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.accountant_id.facsimile) or ''|n }</SPAN></TD>
+<TD CLASS="R27C2I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.accountant_id.facsimile)|safe or '' }</SPAN></TD>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R27C5" COLSPAN=2>${ helper.initials(company.accountant_id.name)|n }</TD>
+<TD CLASS="R27C5" COLSPAN=2>${ helper.initials(company.accountant_id.name) }</TD>
 <TD><SPAN></SPAN></TD>
 <TD><SPAN></SPAN></TD>
 <TD></TD>

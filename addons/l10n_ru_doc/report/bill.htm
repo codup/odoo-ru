@@ -189,7 +189,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS=R3>
 <TD CLASS="R3C0"><SPAN></SPAN></TD>
-<TD CLASS="R3C1" COLSPAN=5 ROWSPAN=2><DIV STYLE="width:100%;height:31px;overflow:hidden;">${ helper.full_representation(company)|n }</DIV></TD>
+<TD CLASS="R3C1" COLSPAN=5 ROWSPAN=2><DIV STYLE="width:100%;height:31px;overflow:hidden;">${ helper.full_representation(company) }</DIV></TD>
 <TD CLASS="R3C7" COLSPAN=3><SPAN STYLE="white-space:nowrap;">Форма&nbsp;по&nbsp;ОКУД&nbsp;</SPAN></TD>
 <TD CLASS="R3C9"><SPAN STYLE="white-space:nowrap;">0330212</SPAN></TD>
 <TD></TD>
@@ -227,7 +227,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TR CLASS=R3>
 <TD CLASS="R4C0"><SPAN></SPAN></TD>
 <TD CLASS="R8C1">Грузополучатель</TD>
-<TD CLASS="R3C1" COLSPAN=5>${ helper.full_representation(o.partner_id)|n }</TD>
+<TD CLASS="R3C1" COLSPAN=5>${ helper.full_representation(o.partner_id) }</TD>
 <TD CLASS="R4C7" COLSPAN=2><SPAN STYLE="white-space:nowrap;">по&nbsp;ОКПО</SPAN></TD>
 <TD CLASS="R8C9"><SPAN STYLE="white-space:nowrap;">${o.partner_id.okpo or ''}</SPAN></TD>
 <TD></TD>
@@ -244,7 +244,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS=R3>
 <TD CLASS="R4C7" COLSPAN=2><SPAN STYLE="white-space:nowrap;">Поставщик</SPAN></TD>
-<TD CLASS="R3C1" COLSPAN=5>${ helper.full_representation(company)|n }</TD>
+<TD CLASS="R3C1" COLSPAN=5>${ helper.full_representation(company) }</TD>
 <TD CLASS="R4C7" COLSPAN=2><SPAN STYLE="white-space:nowrap;">по&nbsp;ОКПО</SPAN></TD>
 <TD></TD>
 </TR>
@@ -260,7 +260,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS=R3>
 <TD CLASS="R4C7" COLSPAN=2><SPAN STYLE="white-space:nowrap;">Плательщик</SPAN></TD>
-<TD CLASS="R3C1" COLSPAN=5>${ helper.full_representation(o.partner_id)|n }</TD>
+<TD CLASS="R3C1" COLSPAN=5>${ helper.full_representation(o.partner_id) }</TD>
 <TD CLASS="R4C7" COLSPAN=2><SPAN STYLE="white-space:nowrap;">по&nbsp;ОКПО</SPAN></TD>
 <TD></TD>
 </TR>
@@ -304,7 +304,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS=R3>
 <TD CLASS="R17C2" COLSPAN=3><DIV STYLE="width:100%;height:16px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">ТОВАРНАЯ&nbsp;НАКЛАДНАЯ&nbsp;&nbsp;</SPAN></TD>
-<TD CLASS="R17C3"><DIV STYLE="width:100%;height:16px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">${ helper.numer(o.number)|n }</SPAN></TD>
+<TD CLASS="R17C3"><DIV STYLE="width:100%;height:16px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">${ helper.numer(o.number) }</SPAN></TD>
 <TD CLASS="R17C4"><DIV STYLE="width:100%;height:16px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">${o.date_invoice or ''}</SPAN></TD>
 <TD><DIV STYLE="width:100%;height:16px;overflow:hidden;"><SPAN></SPAN></DIV></TD>
 <TD><DIV STYLE="width:100%;height:16px;overflow:hidden;"><SPAN></SPAN></DIV></TD>
@@ -393,20 +393,18 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <!-- end items header -->
 <!-- start items -->
-<%
-page_quantity = 0
-total_quantity = 0
-page_price_subtotal = 0
-total_price_subtotal = 0
-page_tax = 0
-total_tax = 0
-page_price_tax_subtotal = 0
-total_price_tax_subtotal = 0
-%>
-%for counter, line in enumerate(o.invoice_line,1):
+%set page_quantity = 0
+%set total_quantity = 0
+%set page_price_subtotal = 0
+%set total_price_subtotal = 0
+%set page_tax = 0
+%set total_tax = 0
+%set page_price_tax_subtotal = 0
+%set total_price_tax_subtotal = 0
+%for line in o.invoice_line:
 <TR CLASS=R0>
 <TD CLASS="R21C0"><SPAN></SPAN></TD>
-<TD CLASS="R25C1"><SPAN STYLE="white-space:nowrap;">${counter}</SPAN></TD>
+<TD CLASS="R25C1"><SPAN STYLE="white-space:nowrap;">${loop.index}</SPAN></TD>
 <TD CLASS="R25C2">${line.product_id.name or ''}</TD>
 <TD CLASS="R25C3"><!-- TO DO: ТоварКод --></TD>
 <TD CLASS="R25C4"><SPAN STYLE="white-space:nowrap;">${line.uos_id.name or ''}</SPAN></TD>
@@ -423,16 +421,14 @@ total_price_tax_subtotal = 0
 <TD CLASS="R25C15"><SPAN STYLE="white-space:nowrap;">${(('%.2f')%(line.price_unit*line.quantity)).replace('.',',') or ''}</SPAN></TD>
 <TD></TD>
 </TR>
-<%
-page_quantity = page_quantity + line.quantity
-total_quantity = total_quantity + line.quantity
-page_price_subtotal = page_price_subtotal + line.price_subtotal
-total_price_subtotal = total_price_subtotal + line.price_subtotal
-page_tax = page_tax + line.price_unit*line.quantity - line.price_subtotal
-total_tax = total_tax + line.price_unit*line.quantity - line.price_subtotal
-page_price_tax_subtotal = page_price_tax_subtotal + line.price_unit*line.quantity
-total_price_tax_subtotal = total_price_tax_subtotal + line.price_unit*line.quantity
-%>
+%set page_quantity = page_quantity + line.quantity
+%set total_quantity = total_quantity + line.quantity
+%set page_price_subtotal = page_price_subtotal + line.price_subtotal
+%set total_price_subtotal = total_price_subtotal + line.price_subtotal
+%set page_tax = page_tax + line.price_unit*line.quantity - line.price_subtotal
+%set total_tax = total_tax + line.price_unit*line.quantity - line.price_subtotal
+%set page_price_tax_subtotal = page_price_tax_subtotal + line.price_unit*line.quantity
+%set total_price_tax_subtotal = total_price_tax_subtotal + line.price_unit*line.quantity
 %endfor
 <!-- end items -->
 <!-- start total -->
@@ -509,7 +505,7 @@ total_price_tax_subtotal = total_price_tax_subtotal + line.price_unit*line.quant
 <TD><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN></SPAN></DIV></TD>
 <TD><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN></SPAN></DIV></TD>
 <TD><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">и&nbsp;содержит</SPAN></TD>
-<TD CLASS="R32C3" COLSPAN=4><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">${ helper.in_words(o.invoice_line and counter or 0).capitalize()|n }</SPAN></TD>
+<TD CLASS="R32C3" COLSPAN=4><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">${ helper.in_words(o.invoice_line and o.invoice_line|count or 0).capitalize() }</SPAN></TD>
 <TD CLASS="R32C7"><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN></SPAN></DIV></TD>
 <TD CLASS="R32C8"><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN></SPAN></DIV></TD>
 <TD CLASS="R32C8"><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN></SPAN></DIV></TD>
@@ -635,7 +631,7 @@ total_price_tax_subtotal = total_price_tax_subtotal + line.price_unit*line.quant
 </TR>
 <TR CLASS=R0>
 <TD CLASS="R42C0"><SPAN></SPAN></TD>
-<TD CLASS="R42C1" COLSPAN=7 STYLE="border-right: #000000 1px solid; ">${ helper.rubles(o.amount_total).capitalize()|n }</TD>
+<TD CLASS="R42C1" COLSPAN=7 STYLE="border-right: #000000 1px solid; ">${ helper.rubles(o.amount_total).capitalize() }</TD>
 <TD><SPAN></SPAN></TD>
 <TD><SPAN></SPAN></TD>
 <TD><SPAN></SPAN></TD>
@@ -661,9 +657,9 @@ total_price_tax_subtotal = total_price_tax_subtotal + line.price_unit*line.quant
 <TD><SPAN STYLE="white-space:nowrap;">Отпуск&nbsp;груза&nbsp;разрешил</SPAN></TD>
 <TD CLASS="R44C2">Директор<!-- TO DO: ДолжностьРуководителя --></TD>
 <TD CLASS="R44C3"><SPAN></SPAN></TD>
-<TD CLASS="R32C8I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.chief_id.facsimile) or ''|n }</SPAN></TD>
+<TD CLASS="R32C8I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.chief_id.facsimile)|safe or '' }</SPAN></TD>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R44C6" COLSPAN=2>${ helper.initials(company.chief_id.name)|n }</TD>
+<TD CLASS="R44C6" COLSPAN=2>${ helper.initials(company.chief_id.name) }</TD>
 <TD><SPAN></SPAN></TD>
 <TD><SPAN></SPAN></TD>
 <TD><SPAN></SPAN></TD>
@@ -690,9 +686,9 @@ total_price_tax_subtotal = total_price_tax_subtotal + line.price_unit*line.quant
 <TR CLASS=R0>
 <TD CLASS="R46C0"><SPAN></SPAN></TD>
 <TD CLASS="R46C0" COLSPAN=3><SPAN STYLE="white-space:nowrap;">Главный&nbsp;(старший)&nbsp;бухгалтер</SPAN></TD>
-<TD CLASS="R32C8I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.accountant_id.facsimile) or ''|n }</SPAN></TD>
+<TD CLASS="R32C8I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.accountant_id.facsimile)|safe or '' }</SPAN></TD>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R44C6" COLSPAN=2>${ helper.initials(company.accountant_id.name)|n }</TD>
+<TD CLASS="R44C6" COLSPAN=2>${ helper.initials(company.accountant_id.name) }</TD>
 <TD><SPAN></SPAN></TD>
 <TD COLSPAN=2><SPAN STYLE="white-space:nowrap;">Груз&nbsp;принял</SPAN></TD>
 <TD CLASS="R32C8"><SPAN></SPAN></TD>
@@ -772,9 +768,9 @@ total_price_tax_subtotal = total_price_tax_subtotal + line.price_unit*line.quant
 <TD><DIV STYLE="width:100%;height:7px;overflow:hidden;">&nbsp;</DIV></TD>
 </TR>
 <TR CLASS=R0>
-<TD CLASS="R29C7S"><SPAN>${ company.print_stamp and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.stamp) or ''|n }</SPAN></TD>
+<TD CLASS="R29C7S"><SPAN>${ company.print_stamp and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.stamp)|safe or '' }</SPAN></TD>
 <TD CLASS="R29C7"><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">М.П.</SPAN></DIV></TD>
-<TD CLASS="R29C7" COLSPAN=3><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">${ helper.ru_date(o.date_invoice)|n }<!-- TO DO: ДатаДокументаДень --></SPAN></DIV></TD>
+<TD CLASS="R29C7" COLSPAN=3><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">${ helper.ru_date(o.date_invoice) }<!-- TO DO: ДатаДокументаДень --></SPAN></DIV></TD>
 <!--<TD CLASS="R32C8"><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">--><!-- TO DO: ДатаДокументаМесяц --><!--</SPAN></TD>-->
 <TD COLSPAN=3 STYLE="border-right: #000000 1px solid; "><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;"><!-- TO DO: ДатаДокументаГод --></SPAN></DIV></TD>
 <TD CLASS="R51C10" COLSPAN=4><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">М.П.</SPAN></DIV></TD>

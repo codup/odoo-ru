@@ -27,6 +27,5 @@ import sale
 import account_invoice
 import lib
 import report_helper
-import report
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

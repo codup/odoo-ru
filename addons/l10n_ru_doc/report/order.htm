@@ -482,7 +482,12 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TR CLASS=R0>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R24C1" COLSPAN=32 ROWSPAN=2><DIV STYLE="width:100%;height:29px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;">
-${ o.state in ['draft','sent'] and u'Коммерческое предложение' or u'Счет на оплату' } № ${ helper.numer(o.name)|n } от ${ helper.ru_date2(o.date_order)|n }
+%if o.state in ['draft','sent']:
+Коммерческое предложение
+%else:
+Счет на оплату
+%endif
+ № ${ helper.numer(o.name) } от ${ helper.ru_date2(o.date_order) }
 </SPAN></DIV></TD>
 <TD></TD>
 </TR>
@@ -570,7 +575,7 @@ ${ o.state in ['draft','sent'] and u'Коммерческое предложен
 <TR CLASS=R15>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R29C1" COLSPAN=4><SPAN STYLE="white-space:nowrap;">Поставщик:</SPAN></TD>
-<TD CLASS="R29C5" COLSPAN=28>${ helper.representation(company)|n }</TD>
+<TD CLASS="R29C5" COLSPAN=28>${ helper.representation(company) }</TD>
 <TD></TD>
 </TR>
 <TR CLASS=R26>
@@ -648,7 +653,7 @@ ${ o.state in ['draft','sent'] and u'Коммерческое предложен
 <TR CLASS=R15>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R29C1" COLSPAN=4><SPAN STYLE="white-space:nowrap;">Покупатель:</SPAN></TD>
-<TD CLASS="R29C5" COLSPAN=28>${ helper.representation(o.partner_id)|n }</TD>
+<TD CLASS="R29C5" COLSPAN=28>${ helper.representation(o.partner_id) }</TD>
 <TD></TD>
 </TR>
 <TR CLASS=R26>
@@ -754,10 +759,10 @@ ${ o.state in ['draft','sent'] and u'Коммерческое предложен
 <TD CLASS="R35C7"><SPAN STYLE="white-space:nowrap;">Сумма</SPAN></TD>
 <TD></TD>
 </TR>
-%for counter, line in enumerate(o.order_line,1):
+%for line in o.order_line:
 <TR CLASS=R0>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R37C1"><SPAN STYLE="white-space:nowrap;">${counter}</SPAN></TD>
+<TD CLASS="R37C1"><SPAN STYLE="white-space:nowrap;">${loop.index}</SPAN></TD>
 %if 0:
 <!-- TO DO: flag of support article -->
 <TD CLASS="R37C2">Артикул</TD>
@@ -883,12 +888,12 @@ ${ o.state in ['draft','sent'] and u'Коммерческое предложен
 </TR>
 <TR CLASS=R15>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R46C1" COLSPAN=32><SPAN STYLE="white-space:nowrap;">Всего наименований ${o.order_line and counter or '0'}, на сумму ${o.amount_total or '0,00'} руб.</SPAN></TD>
+<TD CLASS="R46C1" COLSPAN=32><SPAN STYLE="white-space:nowrap;">Всего наименований ${o.order_line and o.order_line|count or '0'}, на сумму ${o.amount_total or '0,00'} руб.</SPAN></TD>
 <TD></TD>
 </TR>
 <TR CLASS=R15>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R29C5" COLSPAN=31>${ helper.rubles(o.amount_total).capitalize()|n }</TD>
+<TD CLASS="R29C5" COLSPAN=31>${ helper.rubles(o.amount_total).capitalize() }</TD>
 <TD><SPAN></SPAN></TD>
 <TD></TD>
 </TR>
@@ -1006,17 +1011,17 @@ ${ o.state in ['draft','sent'] and u'Коммерческое предложен
 <TR CLASS=R15>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R51C1" COLSPAN=5><SPAN STYLE="white-space:nowrap;">Руководитель</SPAN></TD>
-<TD CLASS="R51C6I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.chief_id.facsimile) or ''|n }</SPAN></TD>
-<TD CLASS="R51C6S"><SPAN>${ company.print_stamp and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.stamp) or ''|n }</SPAN></TD>
+<TD CLASS="R51C6I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.chief_id.facsimile)|safe or '' }</SPAN></TD>
+<TD CLASS="R51C6S"><SPAN>${ company.print_stamp and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.stamp)|safe or '' }</SPAN></TD>
 <TD CLASS="R51C6"><SPAN></SPAN></TD>
 <TD CLASS="R51C6"><SPAN></SPAN></TD>
-<TD CLASS="R51C10" COLSPAN=9>${ helper.initials(company.chief_id.name)|n }</TD>
+<TD CLASS="R51C10" COLSPAN=9>${ helper.initials(company.chief_id.name) }</TD>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R51C1" COLSPAN=4><SPAN STYLE="white-space:nowrap;">Бухгалтер</SPAN></TD>
-<TD CLASS="R51C6I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.accountant_id.facsimile) or ''|n }</SPAN></TD>
+<TD CLASS="R51C6I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.accountant_id.facsimile)|safe or '' }</SPAN></TD>
 <TD CLASS="R51C6"><SPAN></SPAN></TD>
 <TD CLASS="R51C6"><SPAN></SPAN></TD>
-<TD CLASS="R51C10" COLSPAN=6>${ helper.initials(company.accountant_id.name)|n }</TD>
+<TD CLASS="R51C10" COLSPAN=6>${ helper.initials(company.accountant_id.name) }</TD>
 <TD></TD>
 </TR>
 <!-- end company sign -->
@@ -1313,4 +1318,3 @@ ${ o.state in ['draft','sent'] and u'Коммерческое предложен
 %endfor
 </BODY>
 </HTML>
-

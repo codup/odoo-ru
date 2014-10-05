@@ -21,7 +21,7 @@
 
 {
     'name': 'Russia - Accounting',
-    'version': '1.1',
+    'version': '1.2',
     'summary': 'План счетов РФ',
     'category': 'Localization/Account Charts',
     'description': """

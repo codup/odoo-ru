@@ -22,6 +22,7 @@
 {
     'name': 'Russia - Accounting',
     'version': '1.1',
+    'summary': 'План счетов РФ',
     'category': 'Localization/Account Charts',
     'description': """
 This is the base module to manage the accounting chart for Russia in OpenERP.

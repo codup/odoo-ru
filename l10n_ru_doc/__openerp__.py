@@ -35,6 +35,7 @@ The module for print documents in accordance laws of Russia.
     """,
     'author': 'CodUP',
     'website': 'http://codup.com',
+    'images': ['static/description/icon.png'],
     'category': 'Localization',
     'sequence': 0,
     'depends': ['report_webkit_zoom','sale'],

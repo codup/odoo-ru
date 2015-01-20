@@ -421,7 +421,9 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 %endif
 </TABLE>
 <!-- end footer -->
+%if not loop.last
 <p style="page-break-after: always"></p>
+%endif
 %endfor
 </BODY>
 </HTML>

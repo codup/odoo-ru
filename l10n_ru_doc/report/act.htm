@@ -1054,8 +1054,9 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <!-- end item with article -->
 %endif
 </TABLE>
-<div style="width:100%; height: 140px"></div>
+%if not loop.last
 <p style="page-break-after: always"></p>
+%endif
 %endfor
 </BODY>
 </HTML>

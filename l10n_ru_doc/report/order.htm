@@ -1011,14 +1011,14 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TR CLASS=R15>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R51C1" COLSPAN=5><SPAN STYLE="white-space:nowrap;">Руководитель</SPAN></TD>
-<TD CLASS="R51C6I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.chief_id.facsimile)|safe or '' }</SPAN></TD>
-<TD CLASS="R51C6S"><SPAN>${ company.print_stamp and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.stamp)|safe or '' }</SPAN></TD>
+<TD CLASS="R51C6I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('mark_so_as_sent', False)) and helper.embed_image('png',company.chief_id.facsimile)|safe or '' }</SPAN></TD>
+<TD CLASS="R51C6S"><SPAN>${ company.print_stamp and (company.print_anywhere or context.get('mark_so_as_sent', False)) and helper.embed_image('png',company.stamp)|safe or '' }</SPAN></TD>
 <TD CLASS="R51C6"><SPAN></SPAN></TD>
 <TD CLASS="R51C6"><SPAN></SPAN></TD>
 <TD CLASS="R51C10" COLSPAN=9>${ helper.initials(company.chief_id.name) }</TD>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R51C1" COLSPAN=4><SPAN STYLE="white-space:nowrap;">Бухгалтер</SPAN></TD>
-<TD CLASS="R51C6I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.embed_image('png',company.accountant_id.facsimile)|safe or '' }</SPAN></TD>
+<TD CLASS="R51C6I"><SPAN>${ company.print_facsimile and (company.print_anywhere or context.get('mark_so_as_sent', False)) and helper.embed_image('png',company.accountant_id.facsimile)|safe or '' }</SPAN></TD>
 <TD CLASS="R51C6"><SPAN></SPAN></TD>
 <TD CLASS="R51C6"><SPAN></SPAN></TD>
 <TD CLASS="R51C10" COLSPAN=6>${ helper.initials(company.accountant_id.name) }</TD>

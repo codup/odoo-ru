@@ -41,6 +41,11 @@ def ru_date2(self, date):
         return dt.ru_strftime(u'%d %B %Y г.', date=datetime.strptime(date, "%Y-%m-%d %H:%M:%S"), inflected=True)
     return ''
 
+def ru_date3(self, date):
+    if date and date != 'False':
+        return datetime.strptime(date, "%Y-%m-%d").strftime("%d.%m.%Y")
+    return ''
+
 def in_words(self, number):
     return numeral.in_words(number)
 
@@ -88,6 +93,7 @@ def full_representation(self, partner):
 WebKitHelper.numer = numer
 WebKitHelper.ru_date = ru_date
 WebKitHelper.ru_date2 = ru_date2
+WebKitHelper.ru_date3 = ru_date3
 WebKitHelper.in_words = in_words
 WebKitHelper.rubles = rubles
 WebKitHelper.initials = initials

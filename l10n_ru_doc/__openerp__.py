@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2014 CodUP (<http://codup.com>).
+#    Copyright (C) 2014-2015 CodUP (<http://codup.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -35,7 +35,7 @@ The module for print documents in accordance laws of Russia.
     """,
     'author': 'CodUP',
     'website': 'http://codup.com',
-    'images': ['static/description/icon.png'],
+    'images': ['static/description/docs.png'],
     'category': 'Localization',
     'sequence': 0,
     'depends': ['report_webkit_zoom','sale'],

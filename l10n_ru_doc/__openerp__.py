@@ -48,6 +48,7 @@ The module for print documents in accordance laws of Russia.
         'l10n_ru_doc_data.xml',
         'report/l10n_ru_doc_report.xml',
         'report/report_order.xml',
+        'report/report_invoice.xml',
     ],
     'css': ['static/src/css/l10n_ru_doc.css'],
     'installable': True,

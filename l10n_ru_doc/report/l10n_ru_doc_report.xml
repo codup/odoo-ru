@@ -27,15 +27,12 @@
             file="l10n_ru_doc.report_order" 
             report_type="qweb-pdf"/>    
         <report 
-            auto="False" 
-            id="account.account_invoices" 
+            string="Invoice" 
+            id="account.account_invoices"
             model="account.invoice" 
-            name="account.report_invoice"
-            file="l10n_ru_doc/report/invoice.htm" 
-            string="Invoice"
-            usage="default"
-            report_type="webkit"
-            webkit_header="blank_landscape_header"/>
+            name="l10n_ru_doc.report_invoice" 
+            file="l10n_ru_doc.report_invoice" 
+            report_type="qweb-pdf"/>    
         <report 
             auto="False" 
             id="report_account_invoice_bill" 

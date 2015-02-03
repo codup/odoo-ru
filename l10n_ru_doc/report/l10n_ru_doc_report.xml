@@ -41,14 +41,11 @@
             file="l10n_ru_doc.report_bill" 
             report_type="qweb-pdf"/>    
         <report 
-            auto="False" 
+            string="Act" 
             id="report_account_invoice_act" 
             model="account.invoice" 
-            name="account.invoice.act.webkit"
-            file="l10n_ru_doc/report/act.htm" 
-            string="Act"
-            usage="default"
-            report_type="webkit"
-            webkit_header="blank_portrait_header"/>
+            name="l10n_ru_doc.report_act" 
+            file="l10n_ru_doc.report_act" 
+            report_type="qweb-pdf"/>
     </data>
 </openerp>

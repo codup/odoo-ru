@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-		<record id="blank_portrait_header" model="ir.header_webkit">
+        <record id="paperformat_a4" model="report.paperformat">
+            <field name="name">A4</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
             <field name="orientation">Portrait</field>
+            <field name="margin_top">7</field>
+            <field name="margin_bottom">7</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+        <record id="paperformat_a4l" model="report.paperformat">
+            <field name="name">A4 Landscape</field>
+            <field name="default" eval="True" />
             <field name="format">A4</field>
-            <field name="html"> </field>
-            <field eval="0" name="margin_top"/>
-            <field eval="0" name="margin_bottom"/>
-            <field eval="1.43" name="scale"/>
-            <field name="name">Blank Portrait Header</field>
-		</record>
-        <record id="blank_landscape_header" model="ir.header_webkit">
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
             <field name="orientation">Landscape</field>
-            <field name="format">A4</field>
-            <field name="html"> </field>
-            <field eval="0.01" name="margin_top"/>
-            <field eval="0.01" name="margin_bottom"/>
-            <field eval="1.25" name="scale"/>
-            <field name="name">Blank Landscape Header</field>
-		</record>
+            <field name="margin_top">7</field>
+            <field name="margin_bottom">7</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
         <report 
             string="Order" 
             id="sale.report_sale_order" 

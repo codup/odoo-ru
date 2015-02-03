@@ -37,21 +37,30 @@
             model="sale.order" 
             name="l10n_ru_doc.report_order" 
             file="l10n_ru_doc.report_order" 
-            report_type="qweb-pdf"/>    
+            report_type="qweb-pdf"/>
+        <record id="sale.report_sale_order" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="l10n_ru_doc.paperformat_a4"/>
+        </record>
         <report 
             string="Invoice" 
             id="account.account_invoices"
             model="account.invoice" 
             name="l10n_ru_doc.report_invoice" 
             file="l10n_ru_doc.report_invoice" 
-            report_type="qweb-pdf"/>    
+            report_type="qweb-pdf"/>
+        <record id="account.account_invoices" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="l10n_ru_doc.paperformat_a4l"/>
+        </record>
         <report 
             string="Bill" 
             id="report_account_invoice_bill"
             model="account.invoice" 
             name="l10n_ru_doc.report_bill" 
             file="l10n_ru_doc.report_bill" 
-            report_type="qweb-pdf"/>    
+            report_type="qweb-pdf"/>
+        <record id="report_account_invoice_bill" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="l10n_ru_doc.paperformat_a4l"/>
+        </record>
         <report 
             string="Act" 
             id="report_account_invoice_act" 
@@ -59,5 +68,8 @@
             name="l10n_ru_doc.report_act" 
             file="l10n_ru_doc.report_act" 
             report_type="qweb-pdf"/>
+        <record id="report_account_invoice_act" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="l10n_ru_doc.paperformat_a4"/>
+        </record>
     </data>
 </openerp>

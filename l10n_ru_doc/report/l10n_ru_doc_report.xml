@@ -34,15 +34,12 @@
             file="l10n_ru_doc.report_invoice" 
             report_type="qweb-pdf"/>    
         <report 
-            auto="False" 
-            id="report_account_invoice_bill" 
+            string="Bill" 
+            id="report_account_invoice_bill"
             model="account.invoice" 
-            name="account.invoice.bill.webkit"
-            file="l10n_ru_doc/report/bill.htm" 
-            string="Bill"
-            usage="default"
-            report_type="webkit"
-            webkit_header="blank_landscape_header"/>
+            name="l10n_ru_doc.report_bill" 
+            file="l10n_ru_doc.report_bill" 
+            report_type="qweb-pdf"/>    
         <report 
             auto="False" 
             id="report_account_invoice_act" 

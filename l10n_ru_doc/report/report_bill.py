@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -19,8 +19,27 @@
 #
 ##############################################################################
 
-import report_order
-import report_invoice
-import report_bill
+from openerp.osv import osv
+from openerp.addons.l10n_ru_doc.report_helper import QWebHelper
+
+class RuBillReport(osv.AbstractModel):
+    _name = 'report.l10n_ru_doc.report_bill'
+    def render_html(self, cr, uid, ids, data=None, context=None):
+        report_obj = self.pool['report']
+        report = report_obj._get_report_from_name(
+            cr, uid, 'l10n_ru_doc.report_bill'
+        )
+        docargs = {
+            'helper': QWebHelper(),
+            'doc_ids': ids,
+            'doc_model': report.model,
+            'docs': self.pool[report.model].browse(
+                cr, uid, ids, context=context
+            ),
+        }
+        return report_obj.render(
+            cr, uid, ids, 'l10n_ru_doc.report_bill',
+            docargs, context=context
+        )
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

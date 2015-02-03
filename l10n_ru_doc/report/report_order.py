@@ -1,8 +1,8 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2014-2015 CodUP (<http://codup.com>).
+#    Copyright (C) 2015 CodUP (<http://codup.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,14 +19,27 @@
 #
 ##############################################################################
 
-import res_partner
-import res_company
-import res_users
-import res_bank
-import sale
-import account_invoice
-import lib
-import report_helper
-import report
+from openerp.osv import osv
+from openerp.addons.l10n_ru_doc.report_helper import QWebHelper
+
+class RuSaleOrderReport(osv.AbstractModel):
+    _name = 'report.l10n_ru_doc.report_order'
+    def render_html(self, cr, uid, ids, data=None, context=None):
+        report_obj = self.pool['report']
+        report = report_obj._get_report_from_name(
+            cr, uid, 'l10n_ru_doc.report_order'
+        )
+        docargs = {
+            'helper': QWebHelper(),
+            'doc_ids': ids,
+            'doc_model': report.model,
+            'docs': self.pool[report.model].browse(
+                cr, uid, ids, context=context
+            ),
+        }
+        return report_obj.render(
+            cr, uid, ids, 'l10n_ru_doc.report_order',
+            docargs, context=context
+        )
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2014-2015 CodUP (<http://codup.com>).
+#    Copyright (C) 2015 CodUP (<http://codup.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,14 +19,6 @@
 #
 ##############################################################################
 
-import res_partner
-import res_company
-import res_users
-import res_bank
-import sale
-import account_invoice
-import lib
-import report_helper
-import report
+import report_order
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

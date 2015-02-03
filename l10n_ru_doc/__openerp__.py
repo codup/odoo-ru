@@ -21,7 +21,7 @@
 
 {
     'name': 'Russia - Documents',
-    'version': '1.3',
+    'version': '2.0',
     'summary': 'Первичные документы',
     'description': """
 The module for print documents in accordance laws of Russia.
@@ -47,6 +47,7 @@ The module for print documents in accordance laws of Russia.
         'res_bank_view.xml',
         'l10n_ru_doc_data.xml',
         'report/l10n_ru_doc_report.xml',
+        'report/report_order.xml',
     ],
     'css': ['static/src/css/l10n_ru_doc.css'],
     'installable': True,

@@ -38,7 +38,7 @@ The module for print documents in accordance laws of Russia.
     'images': ['static/description/docs.png'],
     'category': 'Localization',
     'sequence': 0,
-    'depends': ['report_webkit_zoom','sale'],
+    'depends': ['sale'],
     'demo': ['l10n_ru_doc_demo.xml'],
     'data': [
         'res_partner_view.xml',

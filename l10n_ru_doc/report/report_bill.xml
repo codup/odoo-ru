@@ -330,7 +330,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TR CLASS="R3">
 <TD CLASS="R17C2" COLSPAN="3"><DIV class="cu_space16"><SPAN class="cu_wspace">ТОВАРНАЯ<![CDATA[&nbsp;]]>НАКЛАДНАЯ<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]></SPAN></DIV></TD>
 <TD CLASS="R17C3"><DIV class="cu_space16"><SPAN class="cu_wspace"><t t-esc="helper.numer(o.number)"/></SPAN></DIV></TD>
-<TD CLASS="R17C4"><DIV class="cu_space16"><SPAN class="cu_wspace"><t t-esc="o.date_invoice or ''"/></SPAN></DIV></TD>
+<TD CLASS="R17C4"><DIV class="cu_space16"><span class="cu_wspace" t-field="o.date_invoice"/></DIV></TD>
 <TD><DIV class="cu_space16"><SPAN></SPAN></DIV></TD>
 <TD><DIV class="cu_space16"><SPAN></SPAN></DIV></TD>
 <TD><DIV class="cu_space16"><SPAN></SPAN></DIV></TD>

@@ -216,7 +216,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS="R3">
 <TD><DIV class="cu_space28"><SPAN></SPAN></DIV></TD>
-<TD CLASS="R3C1" COLSPAN="31"><DIV class="cu_space28"><SPAN class="cu_wspace">Акт № <t t-esc="helper.numer(o.number)"/> от <t t-esc="o.date_invoice or ''"/></SPAN></DIV></TD>
+<TD CLASS="R3C1" COLSPAN="31"><DIV class="cu_space28"><SPAN class="cu_wspace">Акт № <t t-esc="helper.numer(o.number)"/> от <span t-field="o.date_invoice"/></SPAN></DIV></TD>
 <TD><DIV class="cu_space28"><SPAN></SPAN></DIV></TD>
 <TD><DIV class="cu_space28"><SPAN></SPAN></DIV></TD>
 <TD><DIV class="cu_space28"></DIV></TD>

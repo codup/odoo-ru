@@ -11,6 +11,7 @@
             <t t-if="not o or not 'company_id' in o">
                 <t t-set="company" t-value="res_company"></t>
             </t>
+            <t t-set="context" t-value="o._context"></t>
 
             <div class="page">
 
@@ -902,8 +903,8 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TD CLASS="R37C1"><DIV class="cu_space25"><SPAN></SPAN></DIV></TD>
 <TD CLASS="R37C1"><DIV class="cu_space25"><SPAN></SPAN></DIV></TD>
 <TD CLASS="R37C1"><DIV class="cu_space25"><SPAN></SPAN></DIV></TD>
-<TD CLASS="R37C5S"><SPAN><t t-raw="company.print_stamp and (company.print_anywhere or context.get('email', False)) and helper.img(company.stamp) or ''"/></SPAN></TD>
-<TD CLASS="R37C5I"><SPAN><t t-raw="company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.img(company.chief_id.facsimile) or ''"/></SPAN></TD>
+<TD CLASS="R37C5S"><SPAN><t t-raw="company.print_stamp and (company.print_anywhere or context.get('mark_invoice_as_sent', False)) and helper.img(company.stamp) or ''"/></SPAN></TD>
+<TD CLASS="R37C5I"><SPAN><t t-raw="company.print_facsimile and (company.print_anywhere or context.get('mark_invoice_as_sent', False)) and helper.img(company.chief_id.facsimile) or ''"/></SPAN></TD>
 <TD CLASS="R37C4"><DIV class="cu_space25"><SPAN></SPAN></DIV></TD>
 <TD CLASS="R37C5"><DIV class="cu_space25"><SPAN></SPAN></DIV></TD>
 <TD CLASS="R37C5"><DIV class="cu_space25"><SPAN></SPAN></DIV></TD>

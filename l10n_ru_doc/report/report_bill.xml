@@ -11,6 +11,7 @@
             <t t-if="not o or not 'company_id' in o">
                 <t t-set="company" t-value="res_company"></t>
             </t>
+            <t t-set="context" t-value="o._context"></t>
 
             <div class="page">
 
@@ -672,7 +673,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TD><SPAN class="cu_wspace">Отпуск<![CDATA[&nbsp;]]>груза<![CDATA[&nbsp;]]>разрешил</SPAN></TD>
 <TD CLASS="R44C2">Директор<!-- TO DO: ДолжностьРуководителя --></TD>
 <TD CLASS="R44C3"><SPAN></SPAN></TD>
-<TD CLASS="R32C8I"><SPAN><t t-raw="company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.img(company.chief_id.facsimile) or ''"/></SPAN></TD>
+<TD CLASS="R32C8I"><SPAN><t t-raw="company.print_facsimile and (company.print_anywhere or context.get('mark_invoice_as_sent', False)) and helper.img(company.chief_id.facsimile) or ''"/></SPAN></TD>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R44C6" COLSPAN="2"><t t-esc="helper.initials(company.chief_id.name)"/></TD>
 <TD><SPAN></SPAN></TD>
@@ -701,7 +702,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TR CLASS="R0">
 <TD CLASS="R46C0"><SPAN></SPAN></TD>
 <TD CLASS="R46C0" COLSPAN="3"><SPAN class="cu_wspace">Главный<![CDATA[&nbsp;]]>(старший)<![CDATA[&nbsp;]]>бухгалтер</SPAN></TD>
-<TD CLASS="R32C8I"><SPAN><t t-raw="company.print_facsimile and (company.print_anywhere or context.get('email', False)) and helper.img(company.accountant_id.facsimile) or ''"/></SPAN></TD>
+<TD CLASS="R32C8I"><SPAN><t t-raw="company.print_facsimile and (company.print_anywhere or context.get('mark_invoice_as_sent', False)) and helper.img(company.accountant_id.facsimile) or ''"/></SPAN></TD>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R44C6" COLSPAN="2"><t t-esc="helper.initials(company.accountant_id.name)"/></TD>
 <TD><SPAN></SPAN></TD>
@@ -783,7 +784,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TD><DIV class="cu_space7"><![CDATA[&nbsp;]]></DIV></TD>
 </TR>
 <TR CLASS="R0">
-<TD CLASS="R29C7S"><SPAN><t t-raw="company.print_stamp and (company.print_anywhere or context.get('email', False)) and helper.img(company.stamp) or ''"/></SPAN></TD>
+<TD CLASS="R29C7S"><SPAN><t t-raw="company.print_stamp and (company.print_anywhere or context.get('mark_invoice_as_sent', False)) and helper.img(company.stamp) or ''"/></SPAN></TD>
 <TD CLASS="R29C7"><DIV class="cu_space15"><SPAN class="cu_wspace">М.П.</SPAN></DIV></TD>
 <TD CLASS="R29C7" COLSPAN="3"><DIV class="cu_space15"><SPAN class="cu_wspace"><t t-esc="helper.ru_date(o.date_invoice)"/><!-- TO DO: ДатаДокументаДень --></SPAN></DIV></TD>
 <TD COLSPAN="3" class="cu_right"><DIV class="cu_space15"><SPAN class="cu_wspace"><!-- TO DO: ДатаДокументаГод --></SPAN></DIV></TD>

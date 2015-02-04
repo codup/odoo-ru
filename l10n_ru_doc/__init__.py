@@ -23,8 +23,6 @@ import res_partner
 import res_company
 import res_users
 import res_bank
-import sale
-import account_invoice
 import lib
 import report_helper
 import report

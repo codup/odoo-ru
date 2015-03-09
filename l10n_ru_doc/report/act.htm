@@ -430,7 +430,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TR CLASS=R0>
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R14C1" COLSPAN=2><SPAN STYLE="white-space:nowrap;">${loop.index}</SPAN></TD>
-<TD CLASS="R14C3" COLSPAN=17>${line.product_id.name or ''}</TD>
+<TD CLASS="R14C3" COLSPAN=17>${line.name or ''}</TD>
 <TD CLASS="R14C20" COLSPAN=3><SPAN STYLE="white-space:nowrap;">${line.quantity or ''}</SPAN></TD>
 <TD CLASS="R14C23" COLSPAN=2><SPAN STYLE="white-space:nowrap;">${line.uos_id.name or ''}</SPAN></TD>
 <TD CLASS="R14C20" COLSPAN=4><SPAN STYLE="white-space:nowrap;">${(('%.2f')%(line.price_subtotal/line.quantity)).replace('.',',') or ''}</SPAN></TD>

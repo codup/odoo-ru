@@ -248,7 +248,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 %for line in o.invoice_line:
 <TR CLASS=R3>
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R22C1">${line.product_id.name or ''}</TD>
+<TD CLASS="R22C1">${line.name or ''}</TD>
 <TD CLASS="R22C2"><SPAN STYLE="white-space:nowrap;"><!-- TO DO: ЕдиницаИзмеренияКод --></SPAN></TD>
 <TD CLASS="R22C2"><SPAN STYLE="white-space:nowrap;">${line.uos_id.name or ''}</SPAN></TD>
 <TD CLASS="R22C4"><SPAN STYLE="white-space:nowrap;">${line.quantity or ''}</SPAN></TD>

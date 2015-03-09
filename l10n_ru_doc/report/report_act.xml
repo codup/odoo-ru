@@ -519,7 +519,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
     <tr  CLASS="R0" t-foreach="o.invoice_line" t-as="line">
         <TD><SPAN></SPAN></TD>
         <TD CLASS="R14C1" COLSPAN="2"><SPAN class="cu_wspace"><t t-esc="line_index+1"/></SPAN></TD>
-        <TD CLASS="R14C3" COLSPAN="11"><t t-esc="line.product_id.name or ''"/></TD>
+        <TD CLASS="R14C3" COLSPAN="11"><t t-esc="line.name or ''"/></TD>
         <TD CLASS="R14C20" COLSPAN="3"><SPAN class="cu_wspace"><t t-esc="line.quantity or ''"/></SPAN></TD>
         <TD CLASS="R14C23" COLSPAN="2"><SPAN class="cu_wspace"><t t-esc="line.uos_id.name or ''"/></SPAN></TD>
         <TD CLASS="R14C20" COLSPAN="3"><SPAN class="cu_wspace"><t t-esc="line.price_unit or ''"/></SPAN></TD>

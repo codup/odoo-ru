@@ -430,7 +430,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <tr  CLASS="R0" t-foreach="o.invoice_line" t-as="line">
     <TD CLASS="R21C0"><SPAN></SPAN></TD>
     <TD CLASS="R25C1"><SPAN class="cu_wspace"><t t-esc="line_index+1"/></SPAN></TD>
-    <TD CLASS="R25C2"><t t-esc="line.product_id.name or ''"/></TD>
+    <TD CLASS="R25C2"><t t-esc="line.name or ''"/></TD>
     <TD CLASS="R25C3"><!-- TO DO: ТоварКод --></TD>
     <TD CLASS="R25C4"><SPAN class="cu_wspace"><t t-esc="line.uos_id.name or ''"/></SPAN></TD>
     <TD CLASS="R25C5">796<!-- TO DO: БазоваяЕдиницаКодПоОКЕИ --></TD>

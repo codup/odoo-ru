@@ -42,7 +42,6 @@ This is the base module to manage the accounting chart for Russia in OpenERP.
         'data/account_tax_template.xml',
         'l10n_ru_wizard.xml',
     ],
-    'sequence': 1,
     'installable': True,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

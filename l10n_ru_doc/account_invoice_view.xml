@@ -17,6 +17,16 @@
                         <attribute name="name">action_bill_sent</attribute>
                     </button>
                 </data>
+                <data>
+                    <button name="invoice_print" position="attributes">
+                        <attribute name="name">bill_print</attribute>
+                    </button>
+                </data>
+                <data>
+                    <button name="invoice_print" position="attributes">
+                        <attribute name="name">bill_print</attribute>
+                    </button>
+                </data>
             </field>
         </record>
 

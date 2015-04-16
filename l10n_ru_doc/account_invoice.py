@@ -30,7 +30,7 @@ class account_invoice(models.Model):
             context = {}
         context.update({'email': True})
         return super(account_invoice, self).action_invoice_sent(cr, uid, ids, context=context)
-        
+
     @api.multi
     def action_bill_sent(self):
         """ Open a window to compose an email, with the edi invoice template
@@ -58,5 +58,11 @@ class account_invoice(models.Model):
             'target': 'new',
             'context': ctx,
         }
+
+    @api.multi
+    def bill_print(self):
+        assert len(self) == 1, 'This option should only be used for a single id at a time.'
+        self.sent = True
+        return self.env['report'].get_action(self, 'account.invoice.bill.webkit')
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

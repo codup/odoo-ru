@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="invoice_ru_form" model="ir.ui.view">
+            <field name="name">account.invoice.ru.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <button name="action_invoice_sent" position="attributes">
+                        <attribute name="name">action_bill_sent</attribute>
+                    </button>
+                </data>
+                <data>
+                    <button name="action_invoice_sent" position="attributes">
+                        <attribute name="name">action_bill_sent</attribute>
+                    </button>
+                </data>
+                <data>
+                    <button name="invoice_print" position="attributes">
+                        <attribute name="name">bill_print</attribute>
+                    </button>
+                </data>
+                <data>
+                    <button name="invoice_print" position="attributes">
+                        <attribute name="name">bill_print</attribute>
+                    </button>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

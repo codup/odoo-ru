@@ -429,8 +429,8 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 %set total_tax = total_tax + line.price_unit*line.quantity - line.price_subtotal
 %set page_price_tax_subtotal = page_price_tax_subtotal + line.price_unit*line.quantity
 %set total_price_tax_subtotal = total_price_tax_subtotal + line.price_unit*line.quantity
-%endfor
 <!-- end items -->
+%if loop.last:
 <!-- start total -->
 <TR CLASS=R0>
 <TD CLASS="R27C0"><SPAN></SPAN></TD>
@@ -462,6 +462,8 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TD CLASS="R25C10"><SPAN STYLE="white-space:nowrap;">${(('%.2f')%(total_price_tax_subtotal)).replace('.',',') or ''}</SPAN></TD>
 <TD></TD>
 </TR>
+%endif
+%endfor
 </TABLE>
 <!-- end total -->
 <!-- start footer -->

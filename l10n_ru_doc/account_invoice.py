@@ -25,12 +25,6 @@ class account_invoice(models.Model):
     _name = 'account.invoice'
     _inherit = 'account.invoice'
 
-    def action_invoice_sent(self, cr, uid, ids, context=None):
-        if context is None:
-            context = {}
-        context.update({'email': True})
-        return super(account_invoice, self).action_invoice_sent(cr, uid, ids, context=context)
-
     @api.multi
     def action_bill_sent(self):
         """ Open a window to compose an email, with the edi invoice template
@@ -46,6 +40,7 @@ class account_invoice(models.Model):
             default_template_id=template.id,
             default_composition_mode='comment',
             mark_invoice_as_sent=True,
+            email=True,
         )
         return {
             'name': _('Compose Email'),

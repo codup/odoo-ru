@@ -102,8 +102,4 @@ class QWebHelper(object):
         if bank and bank.bank_corr_acc: repr.append(u"к/с " + bank.bank_corr_acc)
         return ', '.join(repr)
 
-    def full_head_representation(self, partner):
-        if partner.parent_id: partner = partner.parent_id
-        return self.full_representation(partner)
-
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

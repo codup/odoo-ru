@@ -286,7 +286,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS="R3">
 <TD CLASS="R4C7" COLSPAN="2"><SPAN class="cu_wspace">Плательщик</SPAN></TD>
-<TD CLASS="R3C1" COLSPAN="5"><t t-esc="helper.full_head_representation(o.partner_id)"/></TD>
+<TD CLASS="R3C1" COLSPAN="5"><t t-esc="helper.full_representation(o.partner_id.parent_id or o.partner_id)"/></TD>
 <TD CLASS="R4C7" COLSPAN="2"><SPAN class="cu_wspace">по<![CDATA[&nbsp;]]>ОКПО</SPAN></TD>
 <TD></TD>
 </TR>

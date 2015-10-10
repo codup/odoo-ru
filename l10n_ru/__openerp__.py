@@ -21,7 +21,7 @@
 
 {
     'name': 'Russia - Accounting',
-    'version': '1.2',
+    'version': '2.0',
     'summary': 'План счетов РФ',
     'category': 'Localization/Account Charts',
     'description': """
@@ -34,13 +34,14 @@ This is the base module to manage the accounting chart for Russia in OpenERP.
     'author': 'CodUP',
     'website': 'http://codup.com',
     'images': ['static/description/account.png'],
-    'depends': ['account','account_chart','l10n_ru_doc',],
+    'depends': ['account'],
     'demo': [],
     'data': [
+        'data/account_chart.xml',
         'data/account.account.template.csv',
         'data/account_chart_template.xml',
         'data/account_tax_template.xml',
-        'l10n_ru_wizard.xml',
+        'data/account_chart_template.yml',
     ],
     'sequence': 1,
     'installable': True,

@@ -262,7 +262,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TR CLASS="R5">
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R5C1" COLSPAN="4"><SPAN class="cu_wspace">Исполнитель:</SPAN></TD>
-<TD CLASS="R5C5" COLSPAN="28"><t t-esc="helper.full_representation(company)"/></TD>
+<TD CLASS="R5C5" COLSPAN="28"><t t-esc="helper.full_representation(company.partner_id)"/></TD>
 <TD><SPAN></SPAN></TD>
 <TD></TD>
 </TR>
@@ -444,12 +444,12 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
     <TD><SPAN></SPAN></TD>
     <TD><![CDATA[&nbsp;]]></TD>
     </TR>
-    <tr  CLASS="R0" t-foreach="o.invoice_line" t-as="line">
+    <tr  CLASS="R0" t-foreach="o.invoice_line_ids" t-as="line">
         <TD><SPAN></SPAN></TD>
         <TD CLASS="R14C1" COLSPAN="2"><SPAN class="cu_wspace"><t t-esc="line_index+1"/></SPAN></TD>
         <TD CLASS="R14C3" COLSPAN="17"><t t-esc="line.product_id.name or ''"/></TD>
         <TD CLASS="R14C20" COLSPAN="3"><SPAN class="cu_wspace"><t t-esc="line.quantity or ''"/></SPAN></TD>
-        <TD CLASS="R14C23" COLSPAN="2"><SPAN class="cu_wspace"><t t-esc="line.uos_id.name or ''"/></SPAN></TD>
+        <TD CLASS="R14C23" COLSPAN="2"><SPAN class="cu_wspace"><t t-esc="line.uom_id.name or ''"/></SPAN></TD>
         <TD CLASS="R14C20" COLSPAN="4"><SPAN class="cu_wspace"><t t-esc="(('%.2f')%(line.price_subtotal/line.quantity)).replace('.',',') or ''"/></SPAN></TD>
         <TD CLASS="R14C29" COLSPAN="4"><SPAN class="cu_wspace"><t t-esc="line.price_subtotal or ''"/></SPAN></TD>
         <TD><SPAN></SPAN></TD>
@@ -516,12 +516,12 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
     <TD><DIV class="cu_space20"><SPAN></SPAN></DIV></TD>
     <TD><DIV class="cu_space20"><![CDATA[&nbsp;]]></DIV></TD>
     </TR>
-    <tr  CLASS="R0" t-foreach="o.invoice_line" t-as="line">
+    <tr  CLASS="R0" t-foreach="o.invoice_line_ids" t-as="line">
         <TD><SPAN></SPAN></TD>
         <TD CLASS="R14C1" COLSPAN="2"><SPAN class="cu_wspace"><t t-esc="line_index+1"/></SPAN></TD>
         <TD CLASS="R14C3" COLSPAN="11"><t t-esc="line.name or ''"/></TD>
         <TD CLASS="R14C20" COLSPAN="3"><SPAN class="cu_wspace"><t t-esc="line.quantity or ''"/></SPAN></TD>
-        <TD CLASS="R14C23" COLSPAN="2"><SPAN class="cu_wspace"><t t-esc="line.uos_id.name or ''"/></SPAN></TD>
+        <TD CLASS="R14C23" COLSPAN="2"><SPAN class="cu_wspace"><t t-esc="line.uom_id.name or ''"/></SPAN></TD>
         <TD CLASS="R14C20" COLSPAN="3"><SPAN class="cu_wspace"><t t-esc="line.price_unit or ''"/></SPAN></TD>
         <TD CLASS="R14C29" COLSPAN="4"><SPAN class="cu_wspace"><!-- TO DO: СуммаБезСкидки --></SPAN></TD>
         <TD CLASS="R14C20" COLSPAN="3"><SPAN class="cu_wspace"><!-- TO DO: Скидка --></SPAN></TD>
@@ -694,7 +694,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS="R0">
 <TD><SPAN></SPAN></TD>
-<TD COLSPAN="32"><SPAN class="cu_wspace">Всего оказано услуг <t t-esc="o.invoice_line and len(o.invoice_line) or 0"/>, на сумму <t t-esc="o.amount_total or '0,00'"/> руб.</SPAN></TD>
+<TD COLSPAN="32"><SPAN class="cu_wspace">Всего оказано услуг <t t-esc="o.invoice_line_ids and len(o.invoice_line_ids) or 0"/>, на сумму <t t-esc="o.amount_total or '0,00'"/> руб.</SPAN></TD>
 <TD><SPAN></SPAN></TD>
 <TD></TD>
 </TR>

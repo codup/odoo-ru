@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <openerp>
     <data noupdate="1">
-        <record id="email_template_edi_bill" model="email.template">
+        <record id="email_template_edi_bill" model="mail.template">
             <field name="name">Waybill - Send by Email</field>
             <field name="email_from">${(object.user_id.email or object.company_id.email or 'noreply@localhost')|safe}</field>
             <field name="subject">${object.company_id.name|safe} Bill (Ref ${object.number or 'n/a'})</field>

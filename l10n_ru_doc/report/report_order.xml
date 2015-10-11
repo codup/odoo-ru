@@ -384,15 +384,15 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </t>
 <TR CLASS="R15">
 <TD><SPAN></SPAN></TD>
-<TD CLASS="R15C1" COLSPAN="18" ROWSPAN="2"><DIV class="cu_space31" t-esc="(company.bank_ids and company.bank_ids[0].bank_name or '')+' '+(company.bank_ids and company.bank_ids[0].bank.city or '')"></DIV></TD>
+<TD CLASS="R15C1" COLSPAN="18" ROWSPAN="2"><DIV class="cu_space31" t-esc="(company.partner_id.bank_ids and company.partner_id.bank_ids[0].bank_name or '')+' '+(company.partner_id.bank_ids and company.partner_id.bank_ids[0].bank_id.city or '')"></DIV></TD>
 <TD CLASS="R15C19" COLSPAN="3"><SPAN class="cu_wspace">БИК</SPAN></TD>
-<TD CLASS="R15C22" COLSPAN="11"><SPAN class="cu_wspace" t-esc="company.bank_ids and company.bank_ids[0].bank_bic or ''"></SPAN></TD>
+<TD CLASS="R15C22" COLSPAN="11"><SPAN class="cu_wspace" t-esc="company.partner_id.bank_ids and company.partner_id.bank_ids[0].bank_bic or ''"></SPAN></TD>
 <TD></TD>
 </TR>
 <TR CLASS="R0">
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R16C19" COLSPAN="3" ROWSPAN="2"><DIV class="cu_space29"><SPAN class="cu_wspace">Сч. №</SPAN></DIV></TD>
-<TD CLASS="R16C22" COLSPAN="11" ROWSPAN="2"><DIV class="cu_space29"><SPAN class="cu_wspace" t-esc="company.bank_ids and company.bank_ids[0].bank_corr_acc or ''"></SPAN></DIV></TD>
+<TD CLASS="R16C22" COLSPAN="11" ROWSPAN="2"><DIV class="cu_space29"><SPAN class="cu_wspace" t-esc="company.partner_id.bank_ids and company.partner_id.bank_ids[0].bank_corr_acc or ''"></SPAN></DIV></TD>
 <TD></TD>
 </TR>
 <TR CLASS="R0">
@@ -407,7 +407,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TD CLASS="R18C1" COLSPAN="2"><SPAN class="cu_wspace">КПП</SPAN></TD>
 <TD CLASS="R18C3" COLSPAN="7"><SPAN class="cu_wspace" t-esc="company.kpp or ''"></SPAN></TD>
 <TD CLASS="R18C19" COLSPAN="3" ROWSPAN="4"><DIV class="cu_space61"><SPAN class="cu_wspace">Сч. №</SPAN></DIV></TD>
-<TD CLASS="R18C19" COLSPAN="11" ROWSPAN="4"><DIV class="cu_space61"><SPAN class="cu_wspace" t-esc="company.bank_ids and company.bank_ids[0].acc_number or ''"></SPAN></DIV></TD>
+<TD CLASS="R18C19" COLSPAN="11" ROWSPAN="4"><DIV class="cu_space61"><SPAN class="cu_wspace" t-esc="company.partner_id.bank_ids and company.partner_id.bank_ids[0].acc_number or ''"></SPAN></DIV></TD>
 <TD></TD>
 </TR>
 <TR CLASS="R0">

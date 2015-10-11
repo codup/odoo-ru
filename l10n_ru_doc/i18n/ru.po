@@ -28,7 +28,7 @@ msgstr "Товарная накладная (ТОРГ-12)"
 
 #. module: account
 #: model:ir.actions.report.xml,name:account.account_invoices
-msgid "Invoice"
+msgid "Invoices"
 msgstr "Счет-фактура"
 
 #. module: l10n_ru_doc

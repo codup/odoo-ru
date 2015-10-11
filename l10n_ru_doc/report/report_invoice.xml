@@ -255,11 +255,11 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <!-- end items header -->
 <!-- start items -->
-<tr  CLASS="R3" t-foreach="o.invoice_line" t-as="line">
+<tr  CLASS="R3" t-foreach="o.invoice_line_ids" t-as="line">
     <TD><SPAN></SPAN></TD>
     <TD CLASS="R22C1"><t t-esc="line.name or ''"/></TD>
     <TD CLASS="R22C2"><SPAN class="cu_wspace"><!-- TO DO: ЕдиницаИзмеренияКод --></SPAN></TD>
-    <TD CLASS="R22C2"><SPAN class="cu_wspace"><t t-esc="line.uos_id.name or ''"/></SPAN></TD>
+    <TD CLASS="R22C2"><SPAN class="cu_wspace"><t t-esc="line.uom_id.name or ''"/></SPAN></TD>
     <TD CLASS="R22C4"><SPAN class="cu_wspace"><t t-esc="line.quantity or ''"/></SPAN></TD>
     <TD CLASS="R22C4"><SPAN class="cu_wspace"><t t-esc="(('%.2f')%(line.price_subtotal/line.quantity)).replace('.',',') or ''"/></SPAN></TD>
     <TD CLASS="R22C4"><SPAN class="cu_wspace"><t t-esc="line.price_subtotal or ''"/></SPAN></TD>

@@ -215,7 +215,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS="R3">
 <TD CLASS="R3C0"><SPAN></SPAN></TD>
-<TD CLASS="R3C1" COLSPAN="5" ROWSPAN="2"><DIV class="cu_space31"><t t-esc="helper.full_representation(company)"/></DIV></TD>
+<TD CLASS="R3C1" COLSPAN="5" ROWSPAN="2"><DIV class="cu_space31"><t t-esc="helper.full_representation(company.partner_id)"/></DIV></TD>
 <TD CLASS="R3C7" COLSPAN="3"><SPAN class="cu_wspace">Форма<![CDATA[&nbsp;]]>по<![CDATA[&nbsp;]]>ОКУД<![CDATA[&nbsp;]]></SPAN></TD>
 <TD CLASS="R3C9"><SPAN class="cu_wspace">0330212</SPAN></TD>
 <TD></TD>
@@ -270,7 +270,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS="R3">
 <TD CLASS="R4C7" COLSPAN="2"><SPAN class="cu_wspace">Поставщик</SPAN></TD>
-<TD CLASS="R3C1" COLSPAN="5"><t t-esc="helper.full_representation(company)"/></TD>
+<TD CLASS="R3C1" COLSPAN="5"><t t-esc="helper.full_representation(company.partner_id)"/></TD>
 <TD CLASS="R4C7" COLSPAN="2"><SPAN class="cu_wspace">по<![CDATA[&nbsp;]]>ОКПО</SPAN></TD>
 <TD></TD>
 </TR>
@@ -419,20 +419,20 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <!-- end items header -->
 <!-- start items -->
-<t t-set="page_quantity" t-value="sum([line.quantity for line in o.invoice_line])" />
-<t t-set="total_quantity" t-value="sum([line.quantity for line in o.invoice_line])"/>
-<t t-set="page_price_subtotal" t-value="sum([line.price_subtotal for line in o.invoice_line])"/>
-<t t-set="total_price_subtotal" t-value="sum([line.price_subtotal for line in o.invoice_line])"/>
-<t t-set="page_tax" t-value="sum([line.price_unit*line.quantity - line.price_subtotal for line in o.invoice_line])"/>
-<t t-set="total_tax" t-value="sum([line.price_unit*line.quantity - line.price_subtotal for line in o.invoice_line])"/>
-<t t-set="page_price_tax_subtotal" t-value="sum([line.price_unit*line.quantity for line in o.invoice_line])"/>
-<t t-set="total_price_tax_subtotal" t-value="sum([line.price_unit*line.quantity for line in o.invoice_line])"/>
-<tr  CLASS="R0" t-foreach="o.invoice_line" t-as="line">
+<t t-set="page_quantity" t-value="sum([line.quantity for line in o.invoice_line_ids])" />
+<t t-set="total_quantity" t-value="sum([line.quantity for line in o.invoice_line_ids])"/>
+<t t-set="page_price_subtotal" t-value="sum([line.price_subtotal for line in o.invoice_line_ids])"/>
+<t t-set="total_price_subtotal" t-value="sum([line.price_subtotal for line in o.invoice_line_ids])"/>
+<t t-set="page_tax" t-value="sum([line.price_unit*line.quantity - line.price_subtotal for line in o.invoice_line_ids])"/>
+<t t-set="total_tax" t-value="sum([line.price_unit*line.quantity - line.price_subtotal for line in o.invoice_line_ids])"/>
+<t t-set="page_price_tax_subtotal" t-value="sum([line.price_unit*line.quantity for line in o.invoice_line_ids])"/>
+<t t-set="total_price_tax_subtotal" t-value="sum([line.price_unit*line.quantity for line in o.invoice_line_ids])"/>
+<tr  CLASS="R0" t-foreach="o.invoice_line_ids" t-as="line">
     <TD CLASS="R21C0"><SPAN></SPAN></TD>
     <TD CLASS="R25C1"><SPAN class="cu_wspace"><t t-esc="line_index+1"/></SPAN></TD>
     <TD CLASS="R25C2"><t t-esc="line.name or ''"/></TD>
     <TD CLASS="R25C3"><!-- TO DO: ТоварКод --></TD>
-    <TD CLASS="R25C4"><SPAN class="cu_wspace"><t t-esc="line.uos_id.name or ''"/></SPAN></TD>
+    <TD CLASS="R25C4"><SPAN class="cu_wspace"><t t-esc="line.uom_id.name or ''"/></SPAN></TD>
     <TD CLASS="R25C5">796<!-- TO DO: БазоваяЕдиницаКодПоОКЕИ --></TD>
     <TD CLASS="R25C6"><SPAN class="cu_wspace"><!-- TO DO: ВидУпаковки --></SPAN></TD>
     <TD CLASS="R25C7"><SPAN class="cu_wspace"><!-- TO DO: КоличествоВОдномМесте --></SPAN></TD>
@@ -521,7 +521,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TD><DIV class="cu_space15"><SPAN></SPAN></DIV></TD>
 <TD><DIV class="cu_space15"><SPAN></SPAN></DIV></TD>
 <TD><DIV class="cu_space15"><SPAN class="cu_wspace">и<![CDATA[&nbsp;]]>содержит</SPAN></DIV></TD>
-<TD CLASS="R32C3" COLSPAN="4"><DIV class="cu_space15"><SPAN class="cu_wspace"><t t-esc="helper.in_words(o.invoice_line and len(o.invoice_line) or 0).capitalize()"/></SPAN></DIV></TD>
+<TD CLASS="R32C3" COLSPAN="4"><DIV class="cu_space15"><SPAN class="cu_wspace"><t t-esc="helper.in_words(o.invoice_line_ids and len(o.invoice_line_ids) or 0).capitalize()"/></SPAN></DIV></TD>
 <TD CLASS="R32C7"><DIV class="cu_space15"><SPAN></SPAN></DIV></TD>
 <TD CLASS="R32C8"><DIV class="cu_space15"><SPAN></SPAN></DIV></TD>
 <TD CLASS="R32C8"><DIV class="cu_space15"><SPAN></SPAN></DIV></TD>

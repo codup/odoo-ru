@@ -10,15 +10,10 @@
         </record>
 
         <record id="main_company_bank" model="res.partner.bank">
-            <field name="bank_name">ОАО "СБЕРБАНК РОССИИ"</field>
-            <field name="bank_bic">044525225</field>
-            <field name="bank_corr_acc">30101810400000000225</field>
-            <field name="state">bank</field>
             <field name="acc_number">40707810600025341231</field>
-            <field name="bank" ref="main_bank"/>
+            <field name="bank_id" ref="main_bank"/>
             <field name="company_id" ref="base.main_company"/>
             <field name="partner_id" ref="base.main_partner"/>
-            <field name="footer">1</field>
         </record>
 
         <record id="base.main_partner" model="res.partner">

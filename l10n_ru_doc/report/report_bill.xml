@@ -302,7 +302,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TR>
 <TR CLASS="R3">
 <TD CLASS="R4C7" COLSPAN="2"><DIV class="cu_space16"><SPAN class="cu_wspace">Основание</SPAN></DIV></TD>
-<TD CLASS="R14C2" COLSPAN="5"><DIV class="cu_space16"><SPAN class="cu_wspace"><!-- TO DO: Основание --></SPAN></DIV></TD>
+<TD CLASS="R14C2" COLSPAN="5"><DIV class="cu_space16"><SPAN class="cu_wspace"><t t-esc="o.name or ''"/></SPAN></DIV></TD>
 <TD><DIV class="cu_space16"><SPAN></SPAN></DIV></TD>
 <TD><DIV class="cu_space16"></DIV></TD>
 </TR>

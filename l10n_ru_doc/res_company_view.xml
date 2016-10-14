@@ -13,20 +13,20 @@
                     <field name="kpp"/>
                     <field name="okpo"/>
                 </field>
-                <group name="account_grp" position="before">
-                    <group string="Responsible Persons">
-                        <field name="chief_id"/>
-                        <field name="accountant_id"/>
-                    </group>
-                </group>
-                <group name="account_grp" position="after">
-                    <group string="Documents">
-                        <field name="print_facsimile"/>
-                        <field name="print_stamp"/>
-                        <field name="print_anywhere"/>
-                        <field name="stamp" widget="image" class="oe_avatar codup_stamp" attrs="{'invisible': [('print_stamp','=', False)]}"/>
-                    </group>
-                </group>
+                <xpath expr="//page" position="after">
+                    <page string="Configuration">
+                        <group string="Responsible Persons">
+                            <field name="chief_id"/>
+                            <field name="accountant_id"/>
+                        </group>
+                        <group string="Documents">
+                            <field name="print_facsimile"/>
+                            <field name="print_stamp"/>
+                            <field name="print_anywhere"/>
+                            <field name="stamp" widget="image" class="oe_avatar codup_stamp" attrs="{'invisible': [('print_stamp','=', False)]}"/>
+                        </group>
+                    </page>
+                </xpath>
             </data>
         </field>
     </record>

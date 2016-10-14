@@ -1,45 +1,28 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2015 CodUP (<http://codup.com>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    Odoo
+#    Copyright (C) 2015-2016 CodUP (<http://codup.com>).
 #
 ##############################################################################
 
-from openerp.osv import osv
-from openerp.addons.l10n_ru_doc.report_helper import QWebHelper
+from odoo import api, models
+from odoo.addons.l10n_ru_doc.report_helper import QWebHelper
 
-class RuBillReport(osv.AbstractModel):
+class RuBillReport(models.AbstractModel):
     _name = 'report.l10n_ru_doc.report_bill'
-    def render_html(self, cr, uid, ids, data=None, context=None):
-        report_obj = self.pool['report']
-        report = report_obj._get_report_from_name(
-            cr, uid, 'l10n_ru_doc.report_bill'
-        )
+
+    @api.model
+    def render_html(self, docids, data=None):
+        Report = self.env['report']
+        report = Report._get_report_from_name('l10n_ru_doc.report_bill')
+        selected_modules = self.env[report.model].browse(docids)
         docargs = {
             'helper': QWebHelper(),
-            'doc_ids': ids,
+            'doc_ids': docids,
             'doc_model': report.model,
-            'docs': self.pool[report.model].browse(
-                cr, uid, ids, context=context
-            ),
+            'docs': selected_modules,
         }
-        return report_obj.render(
-            cr, uid, ids, 'l10n_ru_doc.report_bill',
-            docargs, context=context
-        )
+        return Report.render('l10n_ru_doc.report_bill', docargs)
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

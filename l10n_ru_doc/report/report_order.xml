@@ -392,7 +392,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 <TR CLASS="R0">
 <TD><SPAN></SPAN></TD>
 <TD CLASS="R16C19" COLSPAN="3" ROWSPAN="2"><DIV class="cu_space29"><SPAN class="cu_wspace">Сч. №</SPAN></DIV></TD>
-<TD CLASS="R16C22" COLSPAN="11" ROWSPAN="2"><DIV class="cu_space29"><SPAN class="cu_wspace" t-esc="company.partner_id.bank_ids and company.partner_id.bank_ids[0].bank_corr_acc or ''"></SPAN></DIV></TD>
+<TD CLASS="R16C22" COLSPAN="11" ROWSPAN="2"><DIV class="cu_space29"><SPAN class="cu_wspace" t-esc="company.partner_id.bank_ids and company.partner_id.bank_ids[0].bank_id.corr_acc or ''"></SPAN></DIV></TD>
 <TD></TD>
 </TR>
 <TR CLASS="R0">

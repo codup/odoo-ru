@@ -11,7 +11,7 @@
 
         <record id="l10n_ru_account_chart_template" model="account.chart.template">
             <field name="name">План счетов РФ</field>
-            <field name="code_digits">0</field>
+            <field name="code_digits">1</field>
             <field name="bank_account_code_prefix">999</field>
             <field name="cash_account_code_prefix">999</field>
             <field name="transfer_account_id" ref="ru_acc_000"/>

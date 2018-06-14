@@ -7,7 +7,7 @@
 ##############################################################################
 
 from datetime import datetime
-from . import re
+import re
 from pytils import numeral,dt
 
 

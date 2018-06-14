@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo
-#    Copyright (C) 2014-2016 CodUP (<http://codup.com>).
+#    Copyright (C) 2014-2018 CodUP (<http://codup.com>).
 #
 ##############################################################################
 
@@ -24,5 +24,3 @@ class ResPartnerBank(models.Model):
         self.bank_name = self.bank_id.name
         self.bank_bic = self.bank_id.bic
         self.bank_corr_acc = self.bank_id.corr_acc
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

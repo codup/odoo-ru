@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo
-#    Copyright (C) 2014-2016 CodUP (<http://codup.com>).
+#    Copyright (C) 2014-2018 CodUP (<http://codup.com>).
 #
 ##############################################################################
 
@@ -41,5 +41,3 @@ class AccountInvoice(models.Model):
         assert len(self) == 1, 'This option should only be used for a single id at a time.'
         self.sent = True
         return self.env['report'].get_action(self, 'l10n_ru_doc.report_bill')
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

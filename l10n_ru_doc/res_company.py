@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo
-#    Copyright (C) 2014-2016 CodUP (<http://codup.com>).
+#    Copyright (C) 2014-2018 CodUP (<http://codup.com>).
 #
 ##############################################################################
 
@@ -20,5 +20,3 @@ class Company(models.Model):
     print_stamp = fields.Boolean('Print Stamp', help="Check this for adding Stamp of company to documents.")
     stamp = fields.Binary("Stamp")
     print_anywhere = fields.Boolean('Print Anywhere', help="Uncheck this, if you want add Facsimile and Stamp only in email.", default=True)
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

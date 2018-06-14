@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo
-#    Copyright (C) 2014-2016 CodUP (<http://codup.com>).
+#    Copyright (C) 2014-2018 CodUP (<http://codup.com>).
 #
 ##############################################################################
 
@@ -14,5 +14,3 @@ class ResPartner(models.Model):
     inn = fields.Char('INN', size=12)
     kpp = fields.Char('KPP', size=9)
     okpo = fields.Char('OKPO', size=14)
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

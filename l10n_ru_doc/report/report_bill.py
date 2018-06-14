@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo
-#    Copyright (C) 2015-2016 CodUP (<http://codup.com>).
+#    Copyright (C) 2015-2018 CodUP (<http://codup.com>).
 #
 ##############################################################################
 
@@ -24,5 +24,3 @@ class RuBillReport(models.AbstractModel):
             'docs': selected_modules,
         }
         return Report.render('l10n_ru_doc.report_bill', docargs)
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

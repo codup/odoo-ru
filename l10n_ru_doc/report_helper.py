@@ -2,12 +2,12 @@
 ##############################################################################
 #
 #    Odoo
-#    Copyright (C) 2014-2016 CodUP (<http://codup.com>).
+#    Copyright (C) 2014-2018 CodUP (<http://codup.com>).
 #
 ##############################################################################
 
 from datetime import datetime
-import re
+from . import re
 from pytils import numeral,dt
 
 
@@ -88,5 +88,3 @@ class QWebHelper(object):
         if bank and bank.bank_bic: repr.append(u"БИК " + bank.bank_bic)
         if bank and bank.bank_corr_acc: repr.append(u"к/с " + bank.bank_corr_acc)
         return ', '.join(repr)
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

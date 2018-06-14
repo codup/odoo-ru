@@ -12,15 +12,12 @@ from odoo.addons.l10n_ru_doc.report_helper import QWebHelper
 class RuInvoiceReport(models.AbstractModel):
     _name = 'report.l10n_ru_doc.report_invoice'
 
-    @api.model
-    def render_html(self, docids, data=None):
-        Report = self.env['report']
-        report = Report._get_report_from_name('l10n_ru_doc.report_invoice')
-        selected_modules = self.env[report.model].browse(docids)
-        docargs = {
+    @api.multi
+    def get_report_values(self, docids, data=None):
+        docs = self.env['account.invoice'].browse(docids)
+        return {
             'helper': QWebHelper(),
-            'doc_ids': docids,
-            'doc_model': report.model,
-            'docs': selected_modules,
+            'doc_ids': docs.ids,
+            'doc_model': 'account.invoice',
+            'docs': docs
         }
-        return Report.render('l10n_ru_doc.report_invoice', docargs)

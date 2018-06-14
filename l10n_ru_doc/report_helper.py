@@ -9,6 +9,7 @@
 from datetime import datetime
 import re
 from pytils import numeral,dt
+from odoo.tools import pycompat
 
 
 class QWebHelper(object):
@@ -26,7 +27,7 @@ class QWebHelper(object):
             width,
             height,
             type, 
-            str(img))
+            str(pycompat.to_text(img)))
         return toreturn
 
     def numer(self, name):

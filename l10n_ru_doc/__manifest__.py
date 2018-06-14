@@ -8,7 +8,7 @@
 
 {
     'name': 'Russia - Documents',
-    'version': '3.2',
+    'version': '3.3',
     'summary': 'Первичные документы',
     'description': """
 The module for print documents in accordance laws of Russia.

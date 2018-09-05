@@ -20,6 +20,7 @@ This is the base module to manage the accounting chart for Russia in OpenERP.
     """,
     'author': 'CodUP',
     'website': 'http://codup.com',
+    'license': 'AGPL-3',
     'depends': ['account'],
     'demo': [],
     'data': [

@@ -22,6 +22,7 @@ The module for print documents in accordance laws of Russia.
     """,
     'author': 'CodUP',
     'website': 'http://codup.com',
+    'license': 'AGPL-3',
     'category': 'Localization',
     'sequence': 0,
     'depends': ['sale'],

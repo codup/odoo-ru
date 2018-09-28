@@ -2,10 +2,6 @@
 <openerp>
     <data noupdate="1">
 
-        <record id="base.main_company" model="res.company">
-            <field name="currency_id" ref="base.RUB"/>
-        </record>
-
         <record model="base.language.install" id="install_russian">
             <field name="lang">ru_RU</field>
             <field name="overwrite">1</field>

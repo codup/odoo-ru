@@ -8,7 +8,7 @@
 
 {
     'name': 'Russia - Documents',
-    'version': '3.3',
+    'version': '3.4',
     'summary': 'Первичные документы',
     'description': """
 The module for print documents in accordance laws of Russia.
@@ -25,7 +25,7 @@ The module for print documents in accordance laws of Russia.
     'license': 'AGPL-3',
     'category': 'Localization',
     'sequence': 0,
-    'depends': ['sale'],
+    'depends': ['sale_management'],
     'demo': ['l10n_ru_doc_demo.xml'],
     'data': [
         'account_invoice_view.xml',

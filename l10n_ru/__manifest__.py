@@ -28,7 +28,7 @@ This is the base module to manage the accounting chart for Russia in OpenERP.
         'data/account.account.template.csv',
         'data/account_chart_template.xml',
         'data/account_tax_template.xml',
-        'data/account_chart_template.yml',
+        'data/account_chart_template_data.xml',
     ],
     'images': ['static/description/banner.png'],
     'sequence': 1,

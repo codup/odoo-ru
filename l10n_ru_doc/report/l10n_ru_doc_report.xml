@@ -32,13 +32,13 @@
             <field name="dpi">90</field>
         </record>
         <report 
-            string="Order" 
-            id="sale.report_sale_order" 
+            string="Quotation / Order" 
+            id="sale.action_report_saleorder" 
             model="sale.order" 
             name="l10n_ru_doc.report_order" 
             file="l10n_ru_doc.report_order" 
             report_type="qweb-pdf"/>
-        <record id="sale.report_sale_order" model="ir.actions.report">
+        <record id="sale.action_report_saleorder" model="ir.actions.report">
             <field name="paperformat_id" ref="l10n_ru_doc.paperformat_a4"/>
         </record>
         <report 

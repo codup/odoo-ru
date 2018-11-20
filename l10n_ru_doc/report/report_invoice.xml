@@ -2,7 +2,7 @@
 <openerp>
 <data>
 <template id="report_invoice">
-    <t t-call="web.basic_layout">
+    <t t-call="web.html_container">
         <t t-foreach="docs" t-as="o">
             <!-- Multicompany -->
             <t t-if="o and 'company_id' in o">
@@ -13,7 +13,8 @@
             </t>
             <t t-set="context" t-value="o._context"></t>
 
-            <div class="page">
+            <div class="article o_report_layout_standard"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <div class="page">
 
 <STYLE TYPE="text/css">
 body { background: #ffffff; margin: 0; font-family: Arial; font-size: 8pt; font-style: normal; }
@@ -430,6 +431,7 @@ td { padding: 0px; padding-left: 2px; overflow:hidden; }
 </TABLE>
 <!-- end footer -->
 
+                </div>
             </div>
         </t>
     </t>
